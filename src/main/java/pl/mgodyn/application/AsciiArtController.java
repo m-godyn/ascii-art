@@ -1,9 +1,6 @@
 package pl.mgodyn.application;
 
-import pl.mgodyn.infrastructure.io.ImageReaderImpl;
 import pl.mgodyn.domain.model.Image;
-
-import java.io.File;
 
 class AsciiArtController {
 

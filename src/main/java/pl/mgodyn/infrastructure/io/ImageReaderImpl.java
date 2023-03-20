@@ -21,9 +21,11 @@ public class ImageReaderImpl implements ImageReader {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 int pixel = bufferedImage.getRGB(x, y);
+
                 int red = (pixel >> 16) & 0xff;
                 int blue = (pixel >> 8) & 0xff;
                 int green = pixel & 0xff;
+
                 pixels[y][x] = new Pixel(red, blue, green);
             }
         }
