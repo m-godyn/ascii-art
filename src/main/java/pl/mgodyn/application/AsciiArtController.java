@@ -13,5 +13,6 @@ class AsciiArtController {
         Image image = imageReadingService.readImage(imagePath);
         System.out.println("Successfully loaded image!");
         image.printSize();
+        image.printPixels();
     }
 }
