@@ -1,4 +1,4 @@
-package pl.mgodyn.model;
+package pl.mgodyn.domain.model;
 
 public record Image(int width, int height) {
 

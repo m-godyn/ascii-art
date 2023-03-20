@@ -1,14 +1,16 @@
 package pl.mgodyn.application;
 
-import pl.mgodyn.io.ImageReader;
-import pl.mgodyn.model.Image;
+import pl.mgodyn.infrastructure.io.ImageReaderImpl;
+import pl.mgodyn.domain.model.Image;
 
-public class AsciiArtController {
+import java.io.File;
 
-    private final ImageReader imageReader = new ImageReader();
+class AsciiArtController {
+
+    private final ImageReadingService imageReadingService = new ImageReadingService();
 
     void run(final String imagePath) {
-        Image image = imageReader.readImage(imagePath);
+        Image image = imageReadingService.readImage(imagePath);
         System.out.println("Successfully loaded image!");
         image.printSize();
     }
