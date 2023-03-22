@@ -11,6 +11,7 @@ import java.io.IOException;
 
 public class ImageReaderImpl implements ImageReader {
 
+    @Override
     public Image read(final File image) {
         BufferedImage bufferedImage = convertToBufferedImage(image);
 
