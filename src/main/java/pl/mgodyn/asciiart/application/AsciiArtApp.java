@@ -7,7 +7,7 @@ public class AsciiArtApp {
     public static void main(String[] args) {
         System.out.println(APP_NAME);
 
-        final String imagePath = "src/main/resources/leviosa.jpg";
+        final String imagePath = "src/main/resources/ascii-pineapple.jpg";
 
         AsciiArtController asciiArtController = new AsciiArtController();
         asciiArtController.run(imagePath);
