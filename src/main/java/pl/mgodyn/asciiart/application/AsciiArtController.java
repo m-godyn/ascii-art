@@ -6,9 +6,9 @@ import pl.mgodyn.asciiart.io.ImageReader;
 
 class AsciiArtController {
 
-    ImageReader reader = new ImageReader();
-    Converter converter = new Converter();
-    AsciiArtPrinter printer = new AsciiArtPrinter();
+    private final ImageReader reader = new ImageReader();
+    private final Converter converter = new Converter();
+    private final AsciiArtPrinter printer = new AsciiArtPrinter();
 
     void run(final String imagePath) {
         var image = reader.readAsBufferedImage(imagePath);
