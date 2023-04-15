@@ -1,6 +1,5 @@
 package pl.mgodyn.io;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pl.mgodyn.asciiart.io.AsciiArtPrinter;
 
@@ -24,14 +23,13 @@ class AsciiArtPrinterTest {
     }
 
     @Test
-    void afterPrintedRow_bufferShouldBeEmpty() {
+    void givenChar_whenAddingNewRow_shouldHaveNewRow() {
         // given
-
         // when
-        underTest.printRow();
+        underTest.createNewRow();
 
         // then
-        var expected = "";
+        var expected = "\n";
         assertEquals(expected, underTest.getCurrentBuffer());
     }
 }
