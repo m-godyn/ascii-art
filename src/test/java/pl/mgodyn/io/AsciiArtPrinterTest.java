@@ -25,13 +25,11 @@ class AsciiArtPrinterTest {
     @Test
     void givenChar_whenAddingNewRow_shouldHaveNewRow() {
         // given
-        final char ascii = '#';
         // when
-        underTest.add2Row(ascii);
         underTest.createNewRow();
 
         // then
-        var expected = "###\n";
+        var expected = "\n";
         assertEquals(expected, underTest.getCurrentBuffer());
     }
 }

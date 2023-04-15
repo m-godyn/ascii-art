@@ -13,6 +13,11 @@ class AsciiArtController {
 
     void run(final String imagePath) {
         imageHelper.readImage(imagePath);
+        convertImageAndPreparePrinterBuffer();
+        printer.print();
+    }
+
+    private void convertImageAndPreparePrinterBuffer() {
         for (int y = 0; y < imageHelper.getHeight(); y++) {
             for (int x = 0; x < imageHelper.getWidth(); x++) {
                 var pixel = imageHelper.getRGB(x, y);
@@ -21,6 +26,5 @@ class AsciiArtController {
             }
             printer.createNewRow();
         }
-        printer.print();
     }
 }

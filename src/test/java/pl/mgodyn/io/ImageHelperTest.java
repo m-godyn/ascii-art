@@ -33,7 +33,6 @@ class ImageHelperTest {
     @Test
     void shouldThrowException_whenImageNotRead_andTriesToUseOtherMethods() {
         // given
-
         // expect
         assertAll(
                 () -> assertThrows(NullPointerException.class, underTest::getHeight),
