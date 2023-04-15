@@ -10,6 +10,7 @@ public class ImageHelperImpl implements ImageHelper {
 
     private BufferedImage image;
 
+    @Override
     public void readImage(final String imagePath) {
         try {
             image = ImageIO.read(new File(imagePath));
