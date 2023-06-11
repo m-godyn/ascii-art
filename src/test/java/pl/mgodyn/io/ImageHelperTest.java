@@ -4,8 +4,9 @@ import org.junit.jupiter.api.Test;
 import pl.mgodyn.asciiart.io.ImageHelper;
 import pl.mgodyn.asciiart.io.ImageHelperImpl;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ImageHelperTest {
 
@@ -24,9 +25,9 @@ class ImageHelperTest {
         final var expectedWidth = 700;
         final var expectedRGB = -16681775;
         assertAll("Should return proper values with appropriate width and height and RGB",
-                () -> assertThat(underTest.getHeight()).isEqualTo(expectedHeight),
-                () -> assertThat(underTest.getWidth()).isEqualTo(expectedWidth),
-                () -> assertThat(underTest.getRGB(0, 0)).isEqualTo(expectedRGB)
+                () -> assertEquals(expectedWidth, underTest.getWidth()),
+                () -> assertEquals(expectedHeight, underTest.getHeight()),
+                () -> assertEquals(expectedRGB, underTest.getRGB(0,0))
         );
     }
 

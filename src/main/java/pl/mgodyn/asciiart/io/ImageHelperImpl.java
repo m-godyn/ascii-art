@@ -1,5 +1,8 @@
 package pl.mgodyn.asciiart.io;
 
+import pl.mgodyn.asciiart.converter.ImageResizer;
+import pl.mgodyn.asciiart.converter.ImageResizerImpl;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -9,11 +12,14 @@ import java.util.Objects;
 public class ImageHelperImpl implements ImageHelper {
 
     private BufferedImage image;
+    private ImageResizer<BufferedImage> imageResizer = new ImageResizerImpl();
 
     @Override
     public void readImage(final String imagePath) {
+        BufferedImage image;
         try {
             image = ImageIO.read(new File(imagePath));
+            this.image = imageResizer.resize(image);
         } catch (IOException e) {
             System.err.println(e.getMessage());
             System.exit(1);
