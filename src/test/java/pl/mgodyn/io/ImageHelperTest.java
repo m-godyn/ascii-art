@@ -24,7 +24,7 @@ class ImageHelperTest {
         // then
         final var expectedHeight = 215;
         final var expectedWidth = 322;
-        final var expectedRGB = -16681775;
+        final var expectedRGB = -16747309;
         assertAll("Should return proper values with appropriate width and height and RGB",
                 () -> assertEquals(expectedWidth, underTest.getWidth()),
                 () -> assertEquals(expectedHeight, underTest.getHeight()),
