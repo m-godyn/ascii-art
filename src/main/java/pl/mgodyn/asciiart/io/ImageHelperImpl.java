@@ -1,7 +1,6 @@
 package pl.mgodyn.asciiart.io;
 
 import pl.mgodyn.asciiart.converter.ImageResizer;
-import pl.mgodyn.asciiart.converter.ImageResizerImpl;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -12,7 +11,11 @@ import java.util.Objects;
 public class ImageHelperImpl implements ImageHelper {
 
     private BufferedImage image;
-    private ImageResizer<BufferedImage> imageResizer = new ImageResizerImpl();
+    private final ImageResizer<BufferedImage> imageResizer;
+
+    public ImageHelperImpl(ImageResizer<BufferedImage> imageResizer) {
+        this.imageResizer = imageResizer;
+    }
 
     @Override
     public void readImage(final String imagePath) {

@@ -1,13 +1,14 @@
 package pl.mgodyn.asciiart.application;
 
 import pl.mgodyn.asciiart.converter.Converter;
+import pl.mgodyn.asciiart.converter.ImageResizerImpl;
 import pl.mgodyn.asciiart.io.AsciiArtPrinter;
 import pl.mgodyn.asciiart.io.ImageHelper;
 import pl.mgodyn.asciiart.io.ImageHelperImpl;
 
 class AsciiArtController {
 
-    private final ImageHelper imageHelper = new ImageHelperImpl();
+    private final ImageHelper imageHelper = new ImageHelperImpl(new ImageResizerImpl());
     private final Converter converter = new Converter();
     private final AsciiArtPrinter printer = new AsciiArtPrinter();
 
