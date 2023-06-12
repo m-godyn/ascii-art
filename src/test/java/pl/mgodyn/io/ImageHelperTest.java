@@ -22,8 +22,8 @@ class ImageHelperTest {
         underTest.readImage(imagePath);
 
         // then
-        final var expectedHeight = 467;
-        final var expectedWidth = 700;
+        final var expectedHeight = 215;
+        final var expectedWidth = 322;
         final var expectedRGB = -16681775;
         assertAll("Should return proper values with appropriate width and height and RGB",
                 () -> assertEquals(expectedWidth, underTest.getWidth()),
