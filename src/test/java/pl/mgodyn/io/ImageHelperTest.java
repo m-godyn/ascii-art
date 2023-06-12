@@ -1,32 +1,34 @@
 package pl.mgodyn.io;
 
 import org.junit.jupiter.api.Test;
+import pl.mgodyn.asciiart.converter.ImageResizerImpl;
 import pl.mgodyn.asciiart.io.ImageHelper;
 import pl.mgodyn.asciiart.io.ImageHelperImpl;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ImageHelperTest {
 
-    private final ImageHelper underTest = new ImageHelperImpl();
+    private final ImageHelper underTest = new ImageHelperImpl(new ImageResizerImpl());
 
     @Test
     void givenImagePath_whenImageReaderIsInvoked_thenReturnsBufferedImageObject() {
         // given
-        final String imagePath = "src/test/resources/ascii-pineapple.jpg";
+        final String imagePath = "src/test/resources/ascii-pineapple-322x215.jpg";
 
         // when
         underTest.readImage(imagePath);
 
         // then
-        final var expectedHeight = 467;
-        final var expectedWidth = 700;
-        final var expectedRGB = -16681775;
+        final var expectedHeight = 215;
+        final var expectedWidth = 322;
+        final var expectedRGB = -16747309;
         assertAll("Should return proper values with appropriate width and height and RGB",
-                () -> assertThat(underTest.getHeight()).isEqualTo(expectedHeight),
-                () -> assertThat(underTest.getWidth()).isEqualTo(expectedWidth),
-                () -> assertThat(underTest.getRGB(0, 0)).isEqualTo(expectedRGB)
+                () -> assertEquals(expectedWidth, underTest.getWidth()),
+                () -> assertEquals(expectedHeight, underTest.getHeight()),
+                () -> assertEquals(expectedRGB, underTest.getRGB(0,0))
         );
     }
 
