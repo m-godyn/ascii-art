@@ -27,5 +27,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - name: Disable DPI scaling
+      run: |
+          echo Windows Registry Editor Version 5.00 > disable_dpi_scaling.reg
+          echo [HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers] >> disable_dpi_scaling.reg
+          echo "%ProgramFiles(x86)%\Common Files\YourApplicationFolder\YourApplication.exe"="~ DPIUNAWARE" >> disable_dpi_scaling.reg
+          regedit /s disable_dpi_scaling.reg
     - name: Build with Maven
       run: mvn -B package --file pom.xml
