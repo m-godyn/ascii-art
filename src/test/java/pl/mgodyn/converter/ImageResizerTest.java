@@ -22,7 +22,7 @@ public class ImageResizerTest {
     @BeforeAll
     static void beforeAll() {
         try {
-            testImage = ImageIO.read(new File("src/test/resources/ascii-pineapple.jpg"));
+            testImage = ImageIO.read(new File("src/test/resources/ascii-pineapple-700x467.jpg"));
         } catch (IOException e) {
             System.err.println("Could not read test file!");
             throw new RuntimeException(e);
