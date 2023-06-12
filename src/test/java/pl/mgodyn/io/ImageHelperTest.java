@@ -1,12 +1,14 @@
 package pl.mgodyn.io;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import pl.mgodyn.asciiart.converter.ImageResizer;
 import pl.mgodyn.asciiart.converter.ImageResizerImpl;
 import pl.mgodyn.asciiart.io.ImageHelper;
 import pl.mgodyn.asciiart.io.ImageHelperImpl;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +16,7 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
@@ -26,8 +29,7 @@ class ImageHelperTest {
     void givenImagePath_whenImageReaderIsInvoked_thenReturnsBufferedImageObject() {
         // given
         final String imagePath = "src/test/resources/ascii-pineapple.jpg";
-        BufferedImage givenImage = getBufferedImage(imagePath);
-        when(imageResizer.resize(givenImage)).thenReturn(givenImage);
+        mockImage(imagePath);
 
         // when
         underTest.readImage(imagePath);
@@ -54,11 +56,14 @@ class ImageHelperTest {
         );
     }
 
-    private BufferedImage getBufferedImage(String path) {
+    private void mockImage(String path) {
+        BufferedImage image;
         try {
-            return ImageIO.read(new File(path));
+            image = ImageIO.read(new File(path));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        when(imageResizer.resize(image))
+                .thenReturn(new BufferedImage(700, 467, BufferedImage.TYPE_INT_ARGB));
     }
 }
