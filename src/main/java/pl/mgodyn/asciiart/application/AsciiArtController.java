@@ -1,31 +1,18 @@
 package pl.mgodyn.asciiart.application;
 
-import pl.mgodyn.asciiart.converter.Converter;
-import pl.mgodyn.asciiart.converter.ImageResizerImpl;
-import pl.mgodyn.asciiart.io.AsciiArtPrinter;
-import pl.mgodyn.asciiart.io.ImageHelper;
-import pl.mgodyn.asciiart.io.ImageHelperImpl;
+import pl.mgodyn.asciiart.service.AsciiArtService;
+import pl.mgodyn.asciiart.utils.DefaultScreenSizeProvider;
+import pl.mgodyn.asciiart.utils.ImageUtils;
+
+import java.awt.image.BufferedImage;
 
 class AsciiArtController {
 
-    private final ImageHelper imageHelper = new ImageHelperImpl(new ImageResizerImpl());
-    private final Converter converter = new Converter();
-    private final AsciiArtPrinter printer = new AsciiArtPrinter();
+    private final AsciiArtService asciiArtService = new AsciiArtService();
 
     void run(final String imagePath) {
-        imageHelper.readImage(imagePath);
-        convertImageAndPreparePrinterBuffer();
-        printer.print();
-    }
-
-    private void convertImageAndPreparePrinterBuffer() {
-        for (int y = 0; y < imageHelper.getHeight(); y++) {
-            for (int x = 0; x < imageHelper.getWidth(); x++) {
-                var pixel = imageHelper.getRGB(x, y);
-                var ascii = converter.convertPixel2Ascii(pixel);
-                printer.add2Row(ascii);
-            }
-            printer.createNewRow();
-        }
+        BufferedImage image = ImageUtils.readImage(imagePath, new DefaultScreenSizeProvider());
+        asciiArtService.convert(image);
+        asciiArtService.print();
     }
 }
