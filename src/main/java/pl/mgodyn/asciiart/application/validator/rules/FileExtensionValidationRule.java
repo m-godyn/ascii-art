@@ -9,7 +9,7 @@ public class FileExtensionValidationRule implements ValidationRule {
     @Override
     public boolean isValid(String[] args) {
         String fileName = args[0];
-        return fileName.matches(".*\\.(png|jpg|jpeg)$");
+        return fileName.matches("(?i).*\\.(png|jpg|jpeg)$");
     }
 
     @Override
