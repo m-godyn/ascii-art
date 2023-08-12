@@ -5,18 +5,18 @@
 This command-line application allows users to effortlessly convert their favorite pictures and images into captivating
 ASCII art, adding a creative twist to visual content.
 
-## 🔍 Features
+## Features 🔍
 
 - Convert images (jpg, jpeg, png) to ASCII art
 - Easy-to-use command-line interface
 - Fast and efficient conversion process
 - Scalable for every screen and every size of image
 
-## 🔧 Tech stack
+## Tech stack 🔧
 
-- Java 17 (temurin-17.0.6)
+- [Java 17](https://adoptium.net/temurin/releases/) (temurin-17.0.6)
 
-## 🚀 Usage
+## Usage 🚀
 
 Make sure you have Java 17 installed. Then, follow these steps to set up the ASCII Art Generator.
 
@@ -29,11 +29,11 @@ java -jar ascii-art-1.x.x.jar path_to_image.jpg
 
 3. After executing, zoom out terminal as most as possible and maximize the window. You'll see the ascii art.
 
-## 🔱 License
+## License 🔱
 
 This project is licensed under the MIT License.
 
-## 👏 Acknowledgements
+## Acknowledgements 👏
 
 I would like to express my gratitude to the following individuals and projects that inspired and guided me in creating
 this ASCII Art Generator:
