@@ -22,4 +22,4 @@ jobs:
       - name: Publish JAR
         run: mvn -B release:prepare release:perform
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          GH_PAT: ${{ secrets.GITHUB_TOKEN }}

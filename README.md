@@ -1,6 +1,6 @@
 ![a screenshot presenting terminal after using application](./assets/screen.png)
 
-# ascii-art ![Build and test workflow](https://github.com/m-godyn/ascii-art/actions/workflows/maven_buildAndTest.yml/badge.svg)
+# ascii-art ![build workflow](https://github.com/m-godyn/ascii-art/actions/workflows/maven_buildAndTest.yml/badge.svg) ![build workflow](https://github.com/m-godyn/ascii-art/actions/workflows/maven_release.yml/badge.svg)
 
 This command-line application allows users to effortlessly convert their favorite pictures and images into captivating
 ASCII art, adding a creative twist to visual content.
