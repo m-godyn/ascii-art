@@ -13,9 +13,9 @@
     </properties>
 
     <scm>
-        <connection>scm:git:git@github.com:m-godyn/ascii-art</connection>
-        <url>scm:git:git@github.com:m-godyn/ascii-art</url>
-        <developerConnection>scm:git:git@github.com:m-godyn/ascii-art</developerConnection>
+        <connection>scm:git:https://github.com/m-godyn/ascii-art</connection>
+        <url>scm:git:https://github.com/m-godyn/ascii-art</url>
+        <developerConnection>scm:git:https://github.com/m-godyn/ascii-art</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
