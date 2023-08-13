@@ -1,0 +1,25 @@
+name: release
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  release:
+
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      - name: Set Git user
+        run: |
+          git config user.email "ascii-art@noreply.github.com"
+          git config user.name "GitHub Actions"
+      - name: Publish JAR
+        run: mvn -B release:prepare release:perform -DskipTests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
