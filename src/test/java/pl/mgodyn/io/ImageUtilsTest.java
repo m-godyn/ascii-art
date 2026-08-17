@@ -36,9 +36,12 @@ class ImageUtilsTest {
     void givenImagePath_whenImageReaderIsInvoked_thenReturnsBufferedImageObject() {
         // given
         final String imagePath = "src/test/resources/ascii-pineapple-322x215.jpg";
+        ScreenSizeProvider screenSizeProviderMock = mock(ScreenSizeProvider.class);
+        when(screenSizeProviderMock.getScreenSize())
+                .thenReturn(new Dimension(3840, 2160));
 
         // when
-        var actual = ImageUtils.readImage(imagePath, new DefaultScreenSizeProvider());
+        var actual = ImageUtils.readImage(imagePath, screenSizeProviderMock);
 
         // then
         final var expectedHeight = 215;
