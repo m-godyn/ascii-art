@@ -1,6 +1,6 @@
 ![a screenshot presenting terminal after using application](./assets/screen.png)
 
-# ascii-art ![build workflow](https://github.com/m-godyn/ascii-art/actions/workflows/maven_buildAndTest.yml/badge.svg) ![build workflow](https://github.com/m-godyn/ascii-art/actions/workflows/maven_release.yml/badge.svg)
+# ascii-art [![build](https://github.com/m-godyn/ascii-art/actions/workflows/maven_buildAndTest.yml/badge.svg)](https://github.com/m-godyn/ascii-art/actions/workflows/maven_buildAndTest.yml)
 
 This command-line application allows users to effortlessly convert their favorite pictures and images into captivating
 ASCII art, adding a creative twist to visual content.
@@ -14,20 +14,27 @@ ASCII art, adding a creative twist to visual content.
 
 ## Tech stack 🔧
 
-- [Java 17](https://adoptium.net/temurin/releases/) (temurin-17.0.6)
+- [Java 17](https://adoptium.net/temurin/releases/)
+- Maven
+
+## Build and test 🛠️
+
+Make sure Java 17 and Maven are installed, then run:
+
+```bash
+mvn --batch-mode clean verify
+```
 
 ## Usage 🚀
 
-Make sure you have Java 17 installed. Then, follow these steps to set up the ASCII Art Generator.
-
-1. Download the latest JAR package from repository.
-2. Run application using JAR file and passing the path to image (jpg, jpeg, png) as an argument:
+Build the application, then pass a JPG, JPEG or PNG image to the generated executable JAR:
 
 ```bash
-java -jar ascii-art-1.x.x.jar path_to_image.jpg
+mvn --batch-mode clean package
+java -jar target/ascii-art-1.0.2-SNAPSHOT.jar path/to/image.jpg
 ```
 
-3. After executing, zoom out terminal as most as possible and maximize the window. You'll see the ascii art.
+For the most readable output, use a large terminal window and reduce the terminal font size when processing larger images.
 
 ## License 🔱
 
